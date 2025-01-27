@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Link para WhatsApp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background-color: #1da955;
+    }
+    .link-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .link-container input {
+      width: calc(100% - 30px);
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .link-container button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+    }
+    .link-container button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Gerador de Link WhatsApp</h2>
+    <form id="whatsappForm">
+      <input type="tel" id="numero" placeholder="Número com DDI (ex: 5511999999999)" required />
+      <input type="text" id="mensagem" placeholder="Mensagem inicial (opcional)" />
+      <button type="submit">Gerar Link</button>
+    </form>
+    <div id="linkContainer" class="link-container" style="display: none;">
+      <input type="text" id="linkGerado" readonly />
+      <button id="abrirWhatsApp">Abrir no WhatsApp</button>
+      <button id="copiarLink">Copiar Link</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const numero = document.getElementById('numero').value.trim();
+      const mensagem = document.getElementById('mensagem').value.trim();
+      const linkBase = 'https://wa.me/';
+
+      // Validação do número
+      const numeroValidado = numero.replace(/\D/g, ''); // Remove caracteres não numéricos
+      if (!/^\d{11,15}$/.test(numeroValidado)) {
+        alert('Por favor, insira um número válido no formato internacional (ex: 5511999999999)');
+        return;
+      }
+
+      // Criação do link
+      const mensagemCodificada = encodeURIComponent(mensagem);
+      const linkFinal = mensagem
+        ? `${linkBase}${numeroValidado}?text=${mensagemCodificada}`
+        : `${linkBase}${numeroValidado}`;
+
+      // Exibição do link gerado
+      const linkContainer = document.getElementById('linkContainer');
+      const linkGerado = document.getElementById('linkGerado');
+      linkGerado.value = linkFinal;
+      linkContainer.style.display = 'block';
+
+      // Botão para abrir o WhatsApp
+      document.getElementById('abrirWhatsApp').onclick = () => {
+        window.open(linkFinal, '_blank');
+      };
+    });
+
+    // Função para copiar o link
+    document.getElementById('copiarLink').addEventListener('click', function () {
+      const linkGerado = document.getElementById('linkGerado');
+      linkGerado.select();
+      document.execCommand('copy');
+      alert('Link copiado para a área de transferência!');
+    });
+  </script>
+</body>
+</html>
