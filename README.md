@@ -26,4 +26,4 @@ Simply download the HTML file and open it in a browser!
 
 ---
 
-Made with ❤️ by [Your Name](https://github.com/your-github)
+Made with ❤️ by [Your Name](https://github.com/bezalyel-dev)
