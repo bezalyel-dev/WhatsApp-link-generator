@@ -21,7 +21,8 @@ This is a simple WhatsApp link generator that allows users to quickly create a d
 Simply download the HTML file and open it in a browser!
 
 ## 📸 Screenshot
-![Preview](https://via.placeholder.com/600x300?text=WhatsApp+Link+Generator)
+![Preview](![Screenshot_15](https://github.com/user-attachments/assets/4c3213dc-fdb1-4e8f-86c5-e460cd37a229)
+)
 
 ---
 
