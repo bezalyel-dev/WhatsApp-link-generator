@@ -20,10 +20,6 @@ This is a simple WhatsApp link generator that allows users to quickly create a d
 ## 📂 How to Run Locally
 Simply download the HTML file and open it in a browser!
 
-## 📸 Screenshot
-![Preview](![Screenshot_15](https://github.com/user-attachments/assets/4c3213dc-fdb1-4e8f-86c5-e460cd37a229)
-)
-
 ---
 
-Made with ❤️ by [Your Name](https://github.com/bezalyel-dev)
+Made with ❤️ by [Bezalyel-dev](https://github.com/bezalyel-dev)
