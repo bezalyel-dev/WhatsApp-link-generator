@@ -20,6 +20,7 @@ This is a simple WhatsApp link generator that allows users to quickly create a d
 ## 📂 How to Run Locally
 Simply download the HTML file and open it in a browser!
 
+Link: https://linkgeneratorteks.netlify.app/
 ---
 
 Made with ❤️ by [Bezalyel-dev](https://github.com/bezalyel-dev)
